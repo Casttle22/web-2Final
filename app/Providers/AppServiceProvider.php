@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Question;
 use App\Policies\QuestionPolicy;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if (app()->environment('production')) {
+            URL::forceRootUrl(config('app.url')); // usa tu APP_URL
             URL::forceScheme('https');
         }
     }
