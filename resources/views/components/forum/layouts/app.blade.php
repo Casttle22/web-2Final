@@ -7,7 +7,6 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-@livewireScriptConfig
 <body class="min-h-screen bg-gradient-to-b from-neutral-950 to-neutral-900 text-white">
     <div class="px-4 border-b border-neutral-800">
         <x-forum.navbar />
@@ -24,5 +23,6 @@
         @endif
 
     </div>
+    @livewireScriptConfig
 </body>
 </html>
