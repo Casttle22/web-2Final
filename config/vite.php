@@ -1,13 +1,13 @@
 <?php
 
 return [
-    // Laravel buscará aquí en producción:
-    'manifest' => base_path('public/build/manifest.json'),
+    // Archivo que Laravel usa para detectar el dev server (opcional)
+    'hot_file' => env('VITE_HOT_FILE', storage_path('framework/vite.hot')),
 
-    // no toques esto salvo que hayas cambiado el directorio del build
-    'build_path' => 'build',
+    // ¡Clave importante! Debe coincidir con la carpeta donde Vite dejó el manifest
+    'build_path' => 'build/.vite',
 
-    // (opcional) si usas dev server local
+    // Si usas dev server en local
     'dev_server' => [
         'url' => env('VITE_DEV_SERVER_URL'),
     ],
