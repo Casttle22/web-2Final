@@ -3,8 +3,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
-        "postinstall": "vite build"
+        "build": "vite build"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.11",

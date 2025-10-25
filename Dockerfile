@@ -24,8 +24,7 @@ COPY resources ./resources
 COPY --from=vendor /app/vendor ./vendor
 
 # Instalamos y construimos (dev deps SÍ son necesarias para el build)
-RUN npm ci
-RUN npm run build
+RUN npm ci --no-audit --no-fund && npm run build
 
 # =============== Etapa 3: runtime (PHP + app) ===============
 FROM php:8.2-cli AS app
