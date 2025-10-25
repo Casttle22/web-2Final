@@ -48,8 +48,9 @@ ENV APP_ENV=production \
     APP_DEBUG=false
 
 # Opcional: cacheos que no requieren DB
-RUN php artisan config:cache || true \
-    && php artisan view:cache || true
+RUN php artisan view:cache || true
 
 # Render inyecta $PORT. Iniciamos migraciones y arrancamos el servidor PHP embebido.
-CMD ["sh","-lc","php artisan migrate --force || true; php -S 0.0.0.0:$PORT -t public server.php"]
+CMD sh -lc "php artisan migrate --force \
+    && php artisan config:clear \
+    && php -S 0.0.0.0:$PORT -t public public/index.php"
