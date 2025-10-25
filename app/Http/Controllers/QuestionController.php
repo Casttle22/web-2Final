@@ -8,6 +8,8 @@ use App\Models\Category;
 
 class QuestionController extends Controller
 {
+    use AuthorizesRequests;
+
     public function show(Question $question){
 
         $question->load('answers','category','user');
