@@ -15,7 +15,7 @@ WORKDIR /app
 
 # Manifiestos y config de Vite/Tailwind/PostCSS
 COPY package*.json ./
-COPY vite.config.js postcss.config.js tailwind.config.js . 2>/dev/null || true
+COPY vite.config.js postcss.config.js tailwind.config.js ./
 
 # Código fuente necesario para el build
 COPY resources ./resources
