@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class QuestionController extends Controller
 {
-    use AuthorizesRequests;
 
     public function show(Question $question){
 
