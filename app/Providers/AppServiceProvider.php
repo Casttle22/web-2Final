@@ -24,14 +24,11 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        if (app()->environment('production')) {
-        if ($root = config('app.url')) {
-            URL::forceRootUrl($root);   // usa tu dominio como raíz
+    public function boot(): void{
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+            URL::forceRootUrl(config('app.url')); // opcional pero ayuda
         }
-        URL::forceScheme('https');       // y fuerza el esquema https
-    }
     }
 
     public const HOME = 'home';

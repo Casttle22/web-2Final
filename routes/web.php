@@ -12,6 +12,15 @@ use App\Http\Controllers\AnswerController;
 Route::get('/',[PageController::class,'index'])->name('home');
 Route::get('/question/{question}',[QuestionController::class,'show'])->name('question.show');
 
+Route::get('/diag', function () {
+    return response()->json([
+        'request_scheme' => request()->getScheme(),
+        'host'           => request()->getHost(),
+        'app_url'        => config('app.url'),
+        'home_url'       => url('/'),
+    ]);
+});
+
 //Paginas protegidas
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
