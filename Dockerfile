@@ -42,6 +42,7 @@ COPY . .
 # Traemos vendor cacheado y los assets ya construidos
 COPY --from=vendor /app/vendor ./vendor
 COPY --from=assets /app/public/build ./public/build
+RUN if [ -f public/build/.vite/manifest.json ]; then cp public/build/.vite/manifest.json public/build/manifest.json; fi
 
 # Producción
 ENV APP_ENV=production \
