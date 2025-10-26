@@ -1,14 +1,15 @@
 <?php
 
 return [
-    // Archivo que Laravel usa para detectar el dev server (opcional)
-    'hot_file' => env('VITE_HOT_FILE', storage_path('framework/vite.hot')),
+    // dónde Vite deja los assets respecto a public/
+    'build_path' => 'build',
 
-    // ¡Clave importante! Debe coincidir con la carpeta donde Vite dejó el manifest
-    'build_path' => 'build/.vite',
+    // 👇 Laravel 12 + Vite 5/7 suelen escribir el manifest en .vite/manifest.json
+    'manifest'   => 'build/.vite/manifest.json',
 
-    // Si usas dev server en local
-    'dev_server' => [
-        'url' => env('VITE_DEV_SERVER_URL'),
+    // tus entrypoints
+    'entrypoints' => [
+        'resources/css/app.css',
+        'resources/js/app.js',
     ],
 ];
