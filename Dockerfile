@@ -47,8 +47,6 @@ COPY --from=assets /app/public/build ./public/build
 ENV APP_ENV=production \
     APP_DEBUG=false
 
-# Opcional: cacheos que no requieren DB
-RUN php artisan view:cache || true
 
 # Render inyecta $PORT. Iniciamos migraciones y arrancamos el servidor PHP embebido.
 CMD php artisan config:clear \
