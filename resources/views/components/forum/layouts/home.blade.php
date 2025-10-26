@@ -6,6 +6,7 @@
     <title>Foro de programación</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <livewire:styles />
 </head>
 <body>
     <div class="h-screen flex flex-col">
@@ -48,5 +49,6 @@
     <div class="mx-auto max-w-4xl px-4 mb-8">
         {{ $slot }}
     </div>
+    <livewire:scripts />
 </body>
 </html>
